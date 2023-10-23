@@ -25,45 +25,18 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
 ></script>
+
+<style>
+  body
+  {
+    background-color: #1d2224;
+    color: #ffffff;
+  }
+</style>
 </head>
   
 <body>
 
-<section class="background-radial-gradient overflow-hidden">
-  <style>
-   .background-radial-gradient {
-  background-color: #000000; /* Black Background */
-  background-image: radial-gradient(650px circle at 0% 0%,
-      #000000 15%, /* Black Gradient */
-      transparent 100%),
-    radial-gradient(1250px circle at 100% 100%,
-      #000000 15%, /* Black Gradient */
-      transparent 100%);
-}
-
-
-
-    #radius-shape-1 {
-      height: 220px;
-      width: 220px;
-      top: -60px;
-      left: -130px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
-    }
-
-    #radius-shape-2 {
-      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-      bottom: -60px;
-      right: -110px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
-    }
-
-   
-  </style>
 
   <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
     <div class="row gx-lg-5 align-items-center mb-5">
@@ -83,22 +56,22 @@
         <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
         <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
-        <div class="card bg-glass">
-          <div class="card-body px-4 py-5 px-md-5">
+        <div class=" ">
+          <div class=" px-4 py-5 px-md-5">
             <form action="{{url('login/check_login')}}" method="post">
               <!-- 2 column grid layout with text inputs for the first and last names -->
                <!-- Email input -->
                @csrf
                @method('GET')
   <div class="form-outline mb-4">
-    <input type="text" id="form2Example1" class="form-control" required name="email"/>
-    <label class="form-label" for="form2Example1">Email address</label>
+  <label class="form-label text-white" for="form2Example1">Email address</label>
+    <input placeholder=" email address" type="text" id="form2Example1" class="form-control" required name="email" style="background-color: #ffffff;"/>
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
-    <input type="password" id="form2Example2" class="form-control" required name="password"/>
-    <label class="form-label" for="form2Example2">Password</label>
+    <label class="form-label text-white" for="form2Example2">Password</label>
+    <input type="password" id="form2Example2" class="form-control" required name="password" style="background-color: #ffffff;" placeholder=" password"/>
   </div>
                   @if (Session::has('error_msg'))
                   <div class="text-center">
