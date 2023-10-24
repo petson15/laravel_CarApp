@@ -29,8 +29,25 @@
 </div>
 </div>
 <div class="mb-4 text-center" >
-<button class="btn text-white me-4" style="border: 1px solid red"><small>Status: Available</small></button>
-  <button class="btn text-white ms-4" style="border: 1px solid blue; width:20%"><small>Rent car</small></button>
+<button class="btn text-white me-4" style="border: 1px solid red">
+
+   @if ($posts -> status == 1)
+  
+    <small>Status: Available</small>
+  
+  @else
+  
+    <small>Status: Rented</small>
+  
+  @endif
+
+</button>
+<a @if ($posts->status == 1)
+href="{{url('user/rentcar')}}"
+@endif >
+  <button class="btn text-white ms-4" style="border: 1px solid blue; width:20%" @if ($posts->status == 0) disabled
+    
+  @endif<small>Rent car</small></button></a>
 </div>
 </div>
 @endif

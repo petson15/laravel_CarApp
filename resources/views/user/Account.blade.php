@@ -1,0 +1,2 @@
+hdjfgkdk
+{{$data->username}}

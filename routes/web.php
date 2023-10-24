@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\MycarController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,6 @@ Route::get('/user/saveCar', [MycarController::class, 'store']);
 //cars posts routes//
 Route::get('/user/home', [HomeController::class, 'home']);
 
+//user profile routes//
+Route::get('/user/profile/{id}', [UserController::class, 'index']);
 

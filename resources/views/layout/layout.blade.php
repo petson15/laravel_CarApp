@@ -11,6 +11,7 @@
     <style>
        body {
             background-color: #1d2224;
+            color: #f1f1f1;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             margin: 0; /* Remove default margin to make it full-screen */
             overflow: hidden; /* Hide body overflow to prevent unwanted scrollbars */
@@ -54,7 +55,7 @@
             bottom: 0;
             width: 20%; /* Adjust the width as needed */
             overflow-y: auto; /* Allow the right column to scroll */
-            z-index: -1;
+ 
         }
         /* Scrollbar */
 /* Width and height of the scrollbar */
@@ -94,7 +95,7 @@
                 <a href="{{url('user/messages')}}" class="nav-link text-white"><i class="fa-solid fa-envelope fa-lg"></i><span class="ms-3">Messages</span></a>
                 <a href="{{ url('user/mycars/' . $id) }}" class="nav-link text-white"><i class="fa-solid fa-car fa-lg"></i><span class="ms-3"> My cars</span</a>
                 <a href="{{url('user/rentedcars')}}" class="nav-link text-white"><i class="fa-solid fa-car fa-lg"></i><span class="ms-3">Rented Cars</span> </a>
-                <a href="{{url('user/profile')}}" class="nav-link text-white"><i class="fa-solid fa-user fa-lg"></i><span class="ms-3">Profile</span> </a>
+                <a href="{{url('user/profile/'.$id)}}" class="nav-link text-white"><i class="fa-solid fa-user fa-lg"></i><span class="ms-3">Profile</span> </a>
                 <a href="{{url('user/logout')}}" class="nav-link text-white mb-3"><i class="fa-solid fa-right-from-bracket fa-lg"></i><span class="ms-3"> Logout</span></a>
                 <div style="display: flex; align-items: center; width: 10px;" class="ms-3">
     <div class="mb-2 mt-2" style="display: flex; align-items: center;">
@@ -113,6 +114,25 @@
         </div>
         <div class="right-column">
             <!-- Add content to the right column here -->
+            <input type="search" placeholder="search for dealers" name="" id=""  class="form-control text-white my-5" style="border-radius: 50px; outline:none; background-color: #1d2224">
+
+            <h6 class=" ms-4">TOP DEALERS 🤝🏿💹🚘</h6>
+            @php
+                      $topdealers = DB::table('mycars')
+                         ->select('owner', DB::raw('count(owner) as count'))
+                          ->groupBy('owner')
+                         ->orderByDesc('count')
+                         ->limit(5)
+                         ->get();
+             @endphp
+
+    @foreach ($topdealers as $topdealer)
+        @php
+            $owner = \App\Models\Loginmodel::find($topdealer->owner);
+        @endphp
+        <small class="ms-4"><b>@ {{$owner -> username}} ({{$topdealer ->count}} cars)</b></small><br>
+    @endforeach
+            
         </div>
     </div>
 </body>

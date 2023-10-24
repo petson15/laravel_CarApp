@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mycar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MycarController extends Controller
 {
@@ -52,9 +53,10 @@ class MycarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
         //
+      
 
     }
 
