@@ -18,6 +18,7 @@ class HomeController extends Controller
         $id = $request->session()->get('id');
         $data = ['username' => $username, 'id' => $id];
 
+
         return view('user.home', ['carPosts' => $carPosts], $data);
     }
 

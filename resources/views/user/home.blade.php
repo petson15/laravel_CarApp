@@ -18,7 +18,7 @@
 <!----caption details-->
 <div  class="ms-3 me-3 text-white">
     <p>
-      {{$posts -> description }}
+      {!! $posts -> description !!}
     </p>
     <small><b>Rate per day: GHC {{$posts -> Rate_per_day}}</b></small>
   </div>

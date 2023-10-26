@@ -18,9 +18,9 @@
             
         @endif
         <label for="description">Description:</label>
-        <textarea name="description" id="" cols="20" rows="5" class="form-control me-4 text-white" style="background-color: #1d2224; outline:none"></textarea>
+        <textarea name="description" required id="" cols="20" rows="5" class="form-control me-4 text-white" style="background-color: #1d2224; outline:none"></textarea>
         <label for="rate" class="mt-2 form-label">Rate per day:</label>
-        <input type="number" name="rate" class="form-control text-white" style="width: fit-content;background-color: #1d2224; outline:none">
+        <input type="number" name="rate" class="form-control text-white" required style="width: fit-content;background-color: #1d2224; outline:none">
         <div class="text-center">
             <button class="btn text-primary mt-3" type="submit" style="border: 1px solid blue;">Save Car</button>
         </div>

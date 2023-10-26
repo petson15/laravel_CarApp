@@ -10,12 +10,15 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index($id, Request $request)
     {
         //
-        $data = loginModel::find($id);
+        $getAccount = loginModel::find($id);
+        $username = $request->session()->get('username');
+        $id = $request->session()->get('id');
+        $data = ['username' => $username, 'id' => $id];
 
-        return view('user.Account', ['data' => $data]);
+        return view('user.Account', ['getAccount' => $getAccount], $data);
     }
 
     /**
